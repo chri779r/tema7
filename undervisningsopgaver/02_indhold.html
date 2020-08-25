@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        h1,
+        footer {
+            text-align: center;
+        }
+
+        header,
+        footer {
+            padding: 10px, 0;
+            border: 1px solid #888;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Title goes here</h1>
+    </header>
+
+    <main>
+
+
+
+        <h2>Undertitel</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/300/400/any" alt="" id="first">
+                <h3>Hello world</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex sint nam maiores quas voluptates deserunt aspernatur quis inventore eos, labore facilis placeat tempore mollitia minus corporis ipsam atque hic doloribus doloremque autem accusantium voluptatibus! Earum aspernatur molestiae, provident corporis illum quae qui facilis consectetur odio, harum dolorum exercitationem at aperiam accusantium nam debitis magnam possimus non ad mollitia rem, hic perspiciatis similique! Dolores doloremque totam illo aliquid amet. Facilis itaque amet necessitatibus totam reiciendis beatae eius temporibus, accusantium sunt. Amet natus unde possimus voluptas eaque quia ullam explicabo hic temporibus quod repudiandae mollitia, eos, iusto velit consectetur, at, sed facilis fugit nobis debitis tempore! Nostrum alias quae, magni! Optio omnis, necessitatibus fugit, expedita odit ut, facilis quod at molestiae maiores aut saepe consectetur tempore error reprehenderit commodi laboriosam obcaecati perspiciatis! Pariatur voluptatem, est consequuntur? Dicta reprehenderit omnis qui dolores odit fuga, enim, autem modi sapiente necessitatibus hic quis rerum quas!</p>
+            </article>
+
+
+            <article>
+                <img src="https://placeimg.com/300/400/any" alt="" id="second">
+                <h3>Goodbye world</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolore illo, culpa! Neque qui facilis dolorem eveniet laboriosam voluptatem accusantium eum reprehenderit optio quae asperiores nihil consectetur dignissimos non, molestias assumenda debitis, aliquam ducimus quaerat harum. Ut in, hic dolor reiciendis totam laudantium accusamus fugit dolorem dignissimos veritatis, quidem blanditiis numquam eum sunt, ducimus tenetur accusantium ipsum. Tempora culpa dolore porro amet natus doloribus odit nam provident magnam veritatis. Nulla cupiditate excepturi expedita magnam possimus deserunt dignissimos sunt perspiciatis aut ducimus, neque dolorum. Consequatur, expedita, illo. Qui, quam adipisci voluptatibus aperiam, sit illum dolorum ipsum, earum aspernatur est natus enim!</p>
+            </article>
+        </section>
+
+
+
+
+    </main>
+
+
+    <footer id=info>
+        <p>This is the end</p>
+    </footer>
+
+
+    <script>
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
+
+        const artikel1 = document.querySelector("article:first-child")
+        artikel1.textContent;
+        console.log(artikel1.textContent);
+
+        const img = document.querySelector("#first")
+        img.textContent;
+        console.log(img.textContent);
+
+        const pic = document.querySelector("#second")
+        pic.alt = "tekst til billed 2";
+        console.log(pic.textContent);
+    </script>
+</body></html>
