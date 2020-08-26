@@ -12,7 +12,7 @@
 
 
     <script>
-        var time = Date().getHours();
+        var time = new Date().getHours();
         let resultat;
 
         if (time < 10) {
@@ -21,17 +21,18 @@
             resultat = "Goddag";
         } else if (time < 24) {
             resultat = "Godaften";
-        } else(time < 05) {
+        } else if (time < 05) {
             resultat = "Godnat";
         }
 
+        console.log(resultat);
 
-        /*document.querySelector("button").addEventListener("click", buttonClicked);
-
-        function buttonClicked() {
-            let brugerNavn = document.querySelector("#navn").value;
-            console.log(`Tillykke dit navn er ${brugerNavn}`);
-
-        }*/
+        //        document.querySelector("button").addEventListener("click", buttonClicked);
+        //
+        //        function buttonClicked() {
+        //            let brugerNavn = document.querySelector("#navn").value;
+        //            console.log(`Tillykke dit navn er ${brugerNavn}`);
+        //
+        //        }
     </script>
 </body></html>
