@@ -10,17 +10,19 @@
 
 <body>
 
-    <article id="dyr">
-        <h2></h2>
-        <img src="" alt="">
-        <p>Type: </p>
-        <p>Levested: </p>
-    </article>
+    <template>
+        <article id="dyr">
+            <h2></h2>
+            <img src="art" alt="">
+            <p class="sted"></p>
+            <p></p>
 
+        </article>
+    </template>
 
 
     <script>
-        const dyr = [{
+        let dyr = [{
 
                 "navn": "Gris",
                 "type": "pattedyr",
@@ -52,17 +54,18 @@
                 "type": "krybdyr",
                 "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
                 "levested": "Ferskvand"
-            },
+            }
         ];
 
-        dyr.forEach(dyr => {
-            console.log(`${dyr.navn} ${dyr.type} ${dyr.levested}`);
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
 
-            //document.querySelector("article").innerHTML += `<p>${personer.fornavn} ${personer.efternavn}</p>`
-
+        dyr.forEach(etDyr => {
+            let klon = temp.cloneNode(true).content;
+            klon.querySelector("h2").textContent = etDyr.navn;
+            klon.querySelector(".art").textContent = etDyr.type;
+            klon.querySelector(".sted").textContent = etDyr.levested;
+            container.appendChild(klon);
         })
-
     </script>
-</body>
-
-</html>
+</body></html>
