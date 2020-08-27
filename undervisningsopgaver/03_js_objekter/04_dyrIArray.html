@@ -10,49 +10,46 @@
 
 <body>
 
-    <!--
     <article id="dyr">
-        <h3></h3>
+        <h2></h2>
         <img src="" alt="">
         <p>Type: </p>
         <p>Levested: </p>
     </article>
--->
 
 
 
     <script>
-        let dyr = [{
-            "navn": "Frø",
-            "type": "Padde",
-            "levested": "Vandløb",
-            "billede": "http://mabe-kea.dk/E19/pics/frog.png"
-        }, {
-            "navn": "Gris",
-            "type": "Pattedyr",
-            "levested": "Svinesti",
-            "billede": "http://mabe-kea.dk/E19/pics/pig.png"
-        }, {
-            "navn": "Ræv",
-            "type": "Pattedyr",
-            "levested": "Skov",
-            "billede": "http://mabe-kea.dk/E19/pics/fox.png"
-        }, {
-            "navn": "Sild",
-            "type": "fisk",
-            "levested": "Hav",
-            "billede": "http://mabe-kea.dk/E19/pics/sild.png"
-        }, {
-            "navn": "Krokodille",
-            "type": "Krybdyr",
-            "levested": "Tropisk vandløb",
-            "billede": "http://mabe-kea.dk/E19/pics/kroko.png"
-        }]
+        document.addEventListener("DOMContentLoaded", start);
 
-        console.log(dyr);
+        function start() {
+            console.log("START");
 
-        //        console.log(`dyr: ${dyr.navn} type: ${dyr.type} levested: ${dyr.levested}`);
+            let dyr = {
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            };
 
-        //        article.innerHTML = `Dyr: ${dyr.navn} type: ${dyr.type} <img src="${dyr.billede}">`;
+            let tekst = `Dyr: ${dyr.navn}, type: ${dyr.type}, levested: ${dyr.levested}`;
+
+            const article = document.querySelector("article");
+
+            const overskrift = document.querySelector("#dyr h2");
+            const img = document.querySelector("img");
+            const type = document.querySelector("#dyr p");
+            const levested = document.querySelector("#dyr p + p");
+
+            // Jeg bruger variablen lavet ovenover og indsætter 'textContent' og 'img. På den anden side af = tegnet bruger jeg mit array: dyr og det der ligger under mine objecter fx: variablen.object
+            overskrift.textContent = dyr.navn;
+            img.src = dyr.billede;
+            type.textContent += dyr.type;
+            levested.textContent += dyr.levested;
+
+            console.log(tekst);
+
     </script>
-</body></html>
+</body>
+
+</html>
