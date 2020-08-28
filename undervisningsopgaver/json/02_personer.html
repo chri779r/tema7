@@ -27,7 +27,7 @@
             <img src="" alt="">
             <p class="navn"></p>
             <p class="efternavn"></p>
-            <p class="hobbe"></p>
+            <p class="hobby"></p>
         </article>
     </template>
     <script>
@@ -54,7 +54,7 @@
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector(".navn").textContent = person.gsx$navn.$t;
                 klon.querySelector(".efternavn").textContent = person.gsx$efternavn.$t;
-                //                klon.querySelector(".hobby").textContent = .levested;
+                klon.querySelector(".hobby").textContent = person.hobby.$t;
                 klon.querySelector("img").src = person.gsx$billede.$t
                 container.appendChild(klon);
             })
