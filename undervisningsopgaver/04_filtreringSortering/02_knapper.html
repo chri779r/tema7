@@ -64,6 +64,13 @@
 
 <body>
 
+    <div id="knapper">
+        <button class="filter valgt" data-køn="alle">Alle</button>
+        <button class="filter" data-køn="m">Mænd</button>
+        <button class="filter" data-køn="k">Kvinder</button>
+        <button class="filter" data-køn="andet">Andet</button>
+    </div>
+
 
     <section>
         <template>
@@ -88,24 +95,25 @@
         const link = "https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json";
         let filter = "k";
         let personer;
+        addEventlistenersToButtons();
 
         async function hentdata(fil) {
             const resultat = await fetch(link);
-            const json = await resultat.json();
-            vis(json);
+            personer = await resultat.json();
+            vis();
 
-            console.log(json);
         }
+        let temp = document.querySelector("template");
 
-        function vis(personer) {
+        function vis() {
             console.log(personer);
 
 
             let container = document.querySelector("section");
-            let temp = document.querySelector("template");
             //løb igennem array "dyr"
+            container.innerHTML = "";
             personer.feed.entry.forEach(person => {
-                if (filter == person.gsx$køn.$t.toLowerCase()) {
+                if (filter == "alle" || filter == person.gsx$køn.$t) {
 
                     let klon = temp.cloneNode(true).content;
                     klon.querySelector(".navn").textContent = person.gsx$navn.$t;
@@ -120,7 +128,16 @@
             })
         }
 
+        function addEventlistenersToButtons() {
+            document.querySelectorAll(".filter").forEach(btn => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
 
+        function filterBTNs() {
+            filter = this.dataset.køn;
+            vis();
+        }
 
         hentdata(fil);
     </script>
