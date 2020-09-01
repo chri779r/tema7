@@ -54,6 +54,33 @@
             border-radius: 0px 0px 10px 10px;
         }
 
+        #popop {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .8);
+            display: none;
+        }
+
+        #popop article {
+            width: 80vw;
+            height: 80vw;
+            margin: 4rem auto;
+            background-color: #f2f2f2;
+        }
+
+        #luk {
+            font-size: 20px;
+            position: fixed;
+            top: 3.85em;
+            right: 9em;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: .1em;
+        }
     </style>
 </head>
 
@@ -77,10 +104,20 @@
                     <p class="job"></p>
                     <p class="hobby"></p>
                 </div>
-
             </article>
         </template>
     </section>
+
+
+    <section id="popop">
+        <article>
+            <div id="luk">X</div>
+            <h2></h2>
+            <img src="" alt="">
+            <p></p>
+        </article>
+    </section>
+
 
     <script>
         const fil = "dyrIJSON.json";
@@ -118,11 +155,8 @@
 
 
         hentdata(fil);
-
     </script>
 
 
 
-</body>
-
-</html>
+</body></html>

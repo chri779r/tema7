@@ -1,0 +1,42 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#banner {
+    display: flex;
+    flex-wrap: wrap
+}
+
+nav {
+    position: absolute;
+    text-align: right;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    padding: 15px 35px;
+    color: #f2f2f2;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+}
+
+#hero {
+    background-image: url(imgs/large/heroimg.png);
+    width: 100vw;
+    height: 550px;
+    background-size: cover;
+    max-width: none;
+    background-position: center;
+    position: relative;
+}
