@@ -6,29 +6,7 @@
 
 #banner {
     display: flex;
-    flex-wrap: wrap
-}
-
-nav {
-    position: absolute;
-    text-align: right;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px;
-}
-
-nav button {
-    background-color: transparent;
-    border: none;
-    padding: 15px 35px;
-    color: #f2f2f2;
-    font-size: 1em;
-    text-transform: uppercase;
-}
-
-header h1 {
-    display: flex;
-    justify-content: center;
+    flex-wrap: wrap background: rgb(160, 63, 5);
 }
 
 #hero {
@@ -39,4 +17,39 @@ header h1 {
     max-width: none;
     background-position: center;
     position: relative;
+}
+
+#company {
+    font-family: 'Bungee', cursive;
+    color: #f2f2f2;
+    letter-spacing: 4px;
+    font-size: 25px;
+    position: absolute;
+    left: 5px;
+}
+
+nav {
+    position: absolute;
+    top: 500px;
+    padding: 1px;
+    background-color: #f2f2f2;
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    padding: 15px 35px;
+    color: coral;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+nav button:hover {
+    background-color: coral;
+    color: #f2f2f2;
+}
+
+.valgt {
+    background-color: coral;
+    color: #f2f2f2;
 }
