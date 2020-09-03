@@ -4,13 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Bistro Babushka</title>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <template>
+        <article>
+            <h2></h2>
+            <img src="" alt="">
+            <p class="github"></p>
+            <p class="alder">kr</p>
+        </article>
+    </template>
 
 
     <header id="banner">
@@ -31,10 +39,28 @@
 
     <main>
 
+        <h1 class="menu">Alle retter</h1>
+
+
+        <section id="liste">
+        </section>
 
 
 
 
+        <section id="popop">
+            <article>
+                <div id="luk">X</div>
+                <img src="" alt="">
+                <div>
+                    <h2>Navn Efternavn</h2>
+                    <p>Alder: <span class="alder"></span></p>
+                    <p>Religion: <span class="rel"></span></p>
+                    <p>Job: <span class="job"></span></p>
+                    <p>Hobby: <span class="hobby"></span></p>
+                </div>
+            </article>
+        </section>
 
     </main>
 
@@ -50,10 +76,71 @@
 
 
     <script>
+        const fil = "dyrIJSON.json";
+        const link = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json&fbclid=IwAR1NBIZ-yvs2GrNxuE81pCXt9PGr4TvL9CnyRXhH9UTDPxwcGeUKlQWzRcQ";
+        let filter = "alle";
+        let personer;
+        addEventlistenersToButtons();
+
+        async function hentdata(fil) {
+            const resultat = await fetch(link);
+            personer = await resultat.json();
+            vis();
+
+        }
+        let temp = document.querySelector("template");
+
+        function vis() {
+
+            let container = document.querySelector("#liste");
+            //løb igennem array "dyr"
+            container.innerHTML = "";
+            personer.feed.entry.forEach(person => {
+                if (filter == "alle" || filter == person.gsx$kategori.$t) {
+
+                    console.log(temp);
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                    klon.querySelector(".github").textContent = person.gsx$kort.$t;
+                    klon.querySelector("img").src = "imgs/small/" + person.gsx$billede.$t + "-sm.jpg";
+
+                    klon.querySelector("article").addEventListener("click", () => visDetaljer(person));
+
+                    container.appendChild(klon);
+                }
+            })
+        }
 
 
 
+        function visDetaljer(person) {
+            console.log(person);
+            popop.querySelector("h2").textContent = person.gsx$navn.$t;
+            popop.querySelector("h2").textContent += " " + person.gsx$kort.$t;
+            popop.querySelector("img").src = person.gsx$billede.$t;
+            popop.style.display = "block";
 
+        }
+
+        document.querySelector("#luk").addEventListener("click", () => popop.style.display = "none");
+
+        function addEventlistenersToButtons() {
+            document.querySelectorAll(".filter").forEach(btn => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategoti;
+            document.querySelector(".menu").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+            vis();
+        }
+
+        hentdata(fil);
     </script>
 
 
