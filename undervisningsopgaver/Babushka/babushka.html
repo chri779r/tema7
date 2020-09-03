@@ -10,15 +10,25 @@
 </head>
 
 <body>
-
+    <section id="popop">
+        <article>
+            <div id="luk">X</div>
+            <img src="" alt="">
+            <div>
+                <h2></h2>
+                <p>Beskrivelse: <span class="lang"></span></p>
+                <p>Pris: <span class="pris"></span></p>
+            </div>
+        </article>
+    </section>
     <template>
         <article>
-            <h2></h2>
             <img src="" alt="">
-            <p class="github"></p>
-            <p class="alder">kr</p>
+            <h2></h2>
+            <p class="pris"></p>
         </article>
     </template>
+
 
 
     <header id="banner">
@@ -42,25 +52,7 @@
         <h1 class="menu">Alle retter</h1>
 
 
-        <section id="liste">
-        </section>
-
-
-
-
-        <section id="popop">
-            <article>
-                <div id="luk">X</div>
-                <img src="" alt="">
-                <div>
-                    <h2>Navn Efternavn</h2>
-                    <p>Alder: <span class="alder"></span></p>
-                    <p>Religion: <span class="rel"></span></p>
-                    <p>Job: <span class="job"></span></p>
-                    <p>Hobby: <span class="hobby"></span></p>
-                </div>
-            </article>
-        </section>
+        <section id="liste"></section>
 
     </main>
 
@@ -98,11 +90,10 @@
             personer.feed.entry.forEach(person => {
                 if (filter == "alle" || filter == person.gsx$kategori.$t) {
 
-                    console.log(temp);
                     let klon = temp.cloneNode(true).content;
-                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
-                    klon.querySelector(".github").textContent = person.gsx$kort.$t;
                     klon.querySelector("img").src = "imgs/small/" + person.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                    klon.querySelector(".pris").textContent = `${person.gsx$pris.$t} kr`;
 
                     klon.querySelector("article").addEventListener("click", () => visDetaljer(person));
 
@@ -114,10 +105,12 @@
 
 
         function visDetaljer(person) {
-            console.log(person);
+            // console.log(person);
+            popop.querySelector("img").src = "imgs/small/" + person.gsx$billede.$t + "-sm.jpg";
             popop.querySelector("h2").textContent = person.gsx$navn.$t;
-            popop.querySelector("h2").textContent += " " + person.gsx$kort.$t;
-            popop.querySelector("img").src = person.gsx$billede.$t;
+            popop.querySelector(".lang").textContent += " " + person.gsx$lang.$t;
+            popop.querySelector(".pris").textContent = `${person.gsx$pris.$t} kr`;
+
             popop.style.display = "block";
 
         }
@@ -131,12 +124,13 @@
         }
 
         function filterBTNs() {
-            filter = this.dataset.kategoti;
+            filter = this.dataset.kategori;
             document.querySelector(".menu").textContent = this.textContent;
             document.querySelectorAll(".filter").forEach((btn) => {
                 btn.classList.remove("valgt");
             })
             this.classList.add("valgt");
+            console.log(filter);
             vis();
         }
 
